@@ -22,5 +22,5 @@
             result.innerText = 'John co BMI cao hon';
         }
     }
-    calcul.addEventListener('click', BMI);
+    //calcul.addEventListener('click', BMI);
 }
