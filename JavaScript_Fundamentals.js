@@ -1,5 +1,6 @@
-{
-    console.log()
+console.log()
+
+window.onload = function() {
     var Mark_w_input = document.getElementById('Mark_w');
     var Mark_h_input = document.getElementById('Mark_h');
     var John_w_input = document.getElementById('John_w');
@@ -22,5 +23,5 @@
             result.innerText = 'John co BMI cao hon';
         }
     }
-    //calcul.addEventListener('click', BMI);
+    calcul.addEventListener('click', BMI);
 }
