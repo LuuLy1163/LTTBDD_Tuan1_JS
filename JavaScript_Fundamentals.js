@@ -1,5 +1,7 @@
 console.log()
 window.onload = function() {
+    //JAVASCRIPT FUNDAMENTALS PART 1
+
     //CODE CHANLLENG 1+2
     var Mark_w_input = document.getElementById('Mark_w');
     var Mark_h_input = document.getElementById('Mark_h');
@@ -62,5 +64,56 @@ window.onload = function() {
     calcul_score.addEventListener('click', avg_score);
 
     //CODE CHANLLENGE 4
-    
+    var bill_input = document.getElementById('tip');
+    var calcul_tip = document.getElementById('calcul_tip')
+    function sum_tip() {
+        var bill = parseFloat(bill_input.value);
+        var tip = 0;
+        var sum =0;
+        switch (bill) {
+            case (bill>50 && bill>300): 
+                tip = 15*bill/100;
+                break;
+            default:
+                tip = 20*bill/100;
+        }
+        sum = bill + tip;
+        result_tip.innerText = "The bill was "+bill +", the tip was "+tip.toFixed(2)+", and the total value "+ sum.toFixed(2);
+    }
+    calcul_tip.addEventListener('click', sum_tip);
+
+    //JAVASCRIPT FUNDAMENTALS PART 2
+
+    //CODE CHANLENGE 1
+    var _2D_score1_input = document.getElementById('2D_score1');
+    var _2D_score2_input = document.getElementById('2D_score2');
+    var _2D_score3_input = document.getElementById('2D_score3');
+    var _2K_score1_input = document.getElementById('2K_score1');
+    var _2K_score2_input = document.getElementById('2K_score2');
+    var _2K_score3_input = document.getElementById('2K_score3');
+    var result_score = document.getElementById('result_score');
+    var calcul_score = document.getElementById('calcul_score');
+
+    function check_winner() {
+        var _2D_score1 = parseFloat(_2D_score1_input.value);
+        var _2D_score2 = parseFloat(_2D_score2_input.value);
+        var _2D_score3 = parseFloat(_2D_score3_input.value);
+        var _2K_score1 = parseFloat(_2K_score1_input.value);
+        var _2K_score2 = parseFloat(_2K_score2_input.value);
+        var _2K_score3 = parseFloat(_2K_score3_input.value);
+        var D_avg2 = ((_2D_score1+_2D_score2+_2D_score3)/3);
+        var K_avg2 = ((_2K_score1+_2K_score2+_2K_score3)/3);
+        
+        if (D_avg2 >= (2*K_avg2)) {
+            result_score2.innerText = "Dolphins's avg score (" +D_avg2.toFixed(2)+".vs "+ K_avg2.toFixed(2)+ ") is the winner";
+        } else if (K_avg2 >= (2*D_avg2)) {
+            result_score2.innerText = "Koalas's avg score (" +K_avg2.toFixed(2)+".vs "+ D_avg2.toFixed(2)+") is the winner";
+        } else if ((2*K_avg2) == (2*D_avg2)) {
+            result_score2.innerText = "Both teams have the sane score ("+D_avg.toFixed(2)+")";
+        } else {
+        result_score2.innerText = "No teams wins the trophy";
+        }
+    }
+    calcul_score2.addEventListener('click', check_winner);
+
 }
