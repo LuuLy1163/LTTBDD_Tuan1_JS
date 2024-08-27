@@ -109,11 +109,77 @@ window.onload = function() {
         } else if (K_avg2 >= (2*D_avg2)) {
             result_score2.innerText = "Koalas's avg score (" +K_avg2.toFixed(2)+".vs "+ D_avg2.toFixed(2)+") is the winner";
         } else if ((2*K_avg2) == (2*D_avg2)) {
-            result_score2.innerText = "Both teams have the sane score ("+D_avg.toFixed(2)+")";
+            result_score2.innerText = "Both teams have the sane score ("+D_avg2.toFixed(2)+")";
         } else {
         result_score2.innerText = "No teams wins the trophy";
         }
     }
     calcul_score2.addEventListener('click', check_winner);
 
-}
+    // CODE CHANLLENGE 2
+    let bill_input2 = document.getElementById('tip2');
+    var calcul_tip2 = document.getElementById('calcul_tip2');
+    function sum_tip2() {
+        let billsArr = (bill_input2.value).split(',').map(item => item.trim());
+        let tipArr = [];
+        let sumArr = [];
+
+        for (i=0; i<billsArr.length; i++) {
+            switch (billsArr[i]) {
+                case (billsArr[i]>50 && billsArr[i]>300): 
+                    tipArr.push(15*billsArr[i]/100);
+                    break;
+                default:
+                    tipArr.push(20*billsArr[i]/100);
+            }
+            sum = parseFloat(tipArr[i])+parseFloat(billsArr[i]);
+            sumArr.push(sum);
+            result_tip2.innerText = "The bill was "+billsArr +", the tip was "+tipArr+", and the total value "+ sumArr;
+        }
+        
+    }
+    calcul_tip2.addEventListener('click', sum_tip2);
+
+    //CODE CHANLLENGE 3
+    var oMark_w_input = document.getElementById('oMark_w');
+    var oMark_h_input = document.getElementById('oMark_h');
+    var oJohn_w_input = document.getElementById('oJohn_w');
+    var oJohn_h_input = document.getElementById('oJohn_h');
+    var oresult = document.getElementById('oresult');
+    var ocalcul = document.getElementById('ocalcul');
+
+    function oBMI(){
+        const Mark = {
+            fullName: 'Mark Miller',
+            mass: parseFloat(oMark_w_input.value),
+            height: parseFloat(oMark_h_input.value),
+            calcBMI: function() {
+                this.BMI = this.mass / (this.height**2);
+                return this.BMI;
+            }
+        };
+        
+        const John = {
+            fullName: 'John Smith',
+            mass: parseFloat(oJohn_w_input.value),
+            height: parseFloat(oJohn_h_input.value),
+            calcBMI: function() {
+                this.BMI = this.mass / (this.height**2);
+                return this.BMI;
+            }
+        };
+        const markBMI = Mark.calcBMI();
+        const johnBMI = John.calcBMI();
+
+
+        if (markBMI > johnBMI) {
+            oresult.innerText =  Mark.fullName +"'s BMI(" +markBMI.toFixed(2)+ ") is higher than "+John.fullName + "'s BMI("+johnBMI.toFixed(2) +")";
+        } else if (johnBMI > markBMI) {
+            oresult.innerText =  John.fullName +"'s BMI(" +johnBMI.toFixed(2)+ ") is higher than "+Mark.fullName + "'s BMI("+markBMI.toFixed(2) +")";
+        } else {
+            oresult.innerText =  Mark.fullName +"'s BMI(" +markBMI.toFixed(2)+ ") is equal to "+John.fullName + "'s BMI("+johnBMI.toFixed(2) +")";
+        }
+    }
+    ocalcul.addEventListener('click',oBMI);
+    
+} 
