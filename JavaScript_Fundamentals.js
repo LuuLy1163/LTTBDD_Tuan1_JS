@@ -116,7 +116,7 @@ window.onload = function() {
     }
     calcul_score2.addEventListener('click', check_winner);
 
-    // CODE CHANLLENGE 2
+    // CODE CHANLLENGE 2 + 4
     let bill_input2 = document.getElementById('tip2');
     var calcul_tip2 = document.getElementById('calcul_tip2');
     function sum_tip2() {
@@ -182,4 +182,21 @@ window.onload = function() {
     }
     ocalcul.addEventListener('click',oBMI);
     
+    //DEVELOPER SKILLD & EDITOR SETUP
+
+    //CODE CHANLENGE 1
+    let temp_input = document.getElementById('temp');
+    var calcul_temp = document.getElementById('calcul_temp');
+    function printForecast() {
+        let tempArr = (temp_input.value).split(',').map(item => item.trim());
+        let result = '';
+        for (i=0; i<tempArr.length; i++) {
+            result += "..."+tempArr[i]+"°C in day "+ (i+1);
+        }
+        result += "...";
+        result_temp.innerText = result;
+    }
+    calcul_temp.addEventListener('click', printForecast);
+
+    //CODE CHANLLENGE 2
 } 
